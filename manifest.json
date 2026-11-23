@@ -1,0 +1,18 @@
+{
+ "background_color": "#000000",
+ "description": "Your Source for Personalized Home Care \u2014 referral-only residential cleaning, Cheyenne, Wyoming area. Angela's public page and her private book.",
+ "display": "standalone",
+ "icons": [
+  {
+   "src": "icon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml",
+   "purpose": "any"
+  }
+ ],
+ "name": "Immaculate Home Solutions",
+ "scope": ".",
+ "short_name": "Immaculate",
+ "start_url": ".",
+ "theme_color": "#000000"
+}

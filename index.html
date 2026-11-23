@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Immaculate Home Solutions — Your Source for Personalized Home Care</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <a class="brand" href="#home" data-nav="home">
+    <svg class="diamond" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3 L44 17 L24 45 L4 17 Z" fill="none" stroke="#f2f2f2" stroke-width="2.4"/><path d="M4 17 H44 M24 3 L15 17 L24 45 M24 3 L33 17 L24 45" fill="none" stroke="#bdbdbd" stroke-width="1.4"/></svg>
+    <span class="brand-text">
+      <span class="brand-name">IMMACULATE HOME SOLUTIONS</span>
+      <span class="brand-tag">YOUR SOURCE FOR PERSONALIZED HOME CARE</span>
+    </span>
+  </a>
+  <nav class="top-nav">
+    <a href="#home" data-nav="home">Home</a>
+    <a href="#terms" data-nav="terms">Terms</a>
+    <a href="#privacy" data-nav="privacy">Privacy</a>
+    <a href="#optout" data-nav="optout">Opt out</a>
+    <a href="#book" data-nav="book" class="nav-book">Angela&rsquo;s book</a>
+  </nav>
+</header>
+
+<main id="app">
+
+  <!-- ================= PUBLIC FRONT ================= -->
+  <section data-view="home" class="view">
+    <div id="site-note" class="note-band" hidden></div>
+
+    <div class="hero">
+      <h1>Immaculate Home Solutions</h1>
+      <p class="hero-sub">A clean home, from someone your friends and family already trust. Angela cleans houses for people she knows — and for the people they send her way.</p>
+      <p class="hero-meta">Residential cleaning &middot; Referral-only &middot; Cheyenne, Wyoming area</p>
+    </div>
+
+    <div class="card availability-card">
+      <h2 id="availability-title">Now accepting new referrals</h2>
+      <p id="availability-body"></p>
+    </div>
+
+    <div class="card">
+      <h2 id="about-heading">By referral. On purpose.</h2>
+      <p id="about-body"></p>
+      <ol class="steps">
+        <li><strong>Someone you trust sends you.</strong> You heard about Angela from a current client — a friend, neighbor, or family member whose home she already cleans.</li>
+        <li><strong>You send a request.</strong> Tell Angela who referred you and a little about your home. There is no instant booking and no stranger sign-ups.</li>
+        <li><strong>Angela says yes — personally.</strong> Every request lands with Angela first. She approves it herself, picks a time that actually fits, and only then is it confirmed.</li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h2>What Angela cleans</h2>
+      <div class="cols">
+        <div>
+          <h3>Regular home cleaning</h3>
+          <p>Weekly, every-other-week, or monthly visits for homes on Angela&rsquo;s regular route.</p>
+          <ul><li>Kitchens &amp; bathrooms</li><li>Dusting &amp; floors</li><li>Beds made, linens changed if left out</li><li>Trash out, home reset</li></ul>
+        </div>
+        <div>
+          <h3>Deep clean</h3>
+          <p>A thorough top-to-bottom clean — often the first visit before regular service starts.</p>
+          <ul><li>Baseboards, doors &amp; detail work</li><li>Inside oven / fridge on request</li><li>Cabinets &amp; fixtures</li><li>The corners regular cleans miss</li></ul>
+        </div>
+      </div>
+      <div class="note-box">
+        <h3>Move-in / move-out? Ask for a referral</h3>
+        <p>Angela doesn&rsquo;t offer move-in or move-out cleaning herself — that&rsquo;s not part of her service. But if you need one, just ask: she&rsquo;s happy to refer you to someone she trusts who does that work. Call <a href="tel:+13072142440">307-214-2440</a>.</p>
+      </div>
+    </div>
+
+    <div class="card" id="request-card">
+      <h2>Request a clean — referral requests only</h2>
+      <p class="dim">Angela only books people connected to a home she already cleans. Sending a request is not a booking — Angela reviews every one personally.</p>
+      <form id="request-form">
+        <label>Your name<input name="name" required autocomplete="name"></label>
+        <label>Your phone<input name="phone" type="tel" required autocomplete="tel"></label>
+        <label>Your email (optional)<input name="email" type="email" autocomplete="email"></label>
+        <label>Who referred you? <span class="req">Required</span><input name="referredBy" required placeholder="Name of the client who told you about Angela"></label>
+        <label>Type of clean
+          <select name="cleanType" id="req-clean-type">
+            <option value="regular">Regular cleaning</option>
+            <option value="deep">Deep clean (first visit)</option>
+            <option value="unsure">Not sure yet</option>
+            <option value="move">Move-in / move-out</option>
+          </select>
+        </label>
+        <p id="move-screenout" class="note-box" hidden>Angela doesn&rsquo;t do move-in or move-out cleans herself — but she&rsquo;s happy to refer you to someone she trusts who does. Call her at <a href="tel:+13072142440">307-214-2440</a> and she&rsquo;ll point you their way.</p>
+        <label>How often?
+          <select name="frequency">
+            <option>Every other week</option><option>Weekly</option><option>Monthly</option><option>One time</option>
+          </select>
+        </label>
+        <label>Preferred days<input name="preferredDays" placeholder="e.g. Tuesdays or Thursdays"></label>
+        <label>Anything Angela should know?<textarea name="homeDetails" rows="3" placeholder="Home size, pets, entry, anything that helps…"></textarea></label>
+        <p class="dim small">By sending a request, you agree Angela may contact you about it by phone, text, or email — from her own number and email, clearly identified as Immaculate Home Solutions. You can opt out anytime: reply STOP to a text or use the <a href="#optout" data-nav="optout">opt-out page</a>, honored immediately. See the draft <a href="#terms" data-nav="terms">Terms</a> and <a href="#privacy" data-nav="privacy">Privacy Policy</a>.</p>
+        <button type="submit" class="btn primary" id="req-submit">Send request to Angela</button>
+        <p id="req-result" class="result" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= TERMS (draft) ================= -->
+  <section data-view="terms" class="view legal" hidden>
+    <p class="draft-flag">DRAFT — for Angela&rsquo;s review, not a live legal document.</p>
+    <h1>Terms of Service</h1>
+    <h2>How booking works</h2>
+    <ul>
+      <li><strong>Referral-only.</strong> Immaculate Home Solutions takes new homes only by referral from a current client. There is no public booking and no sign-up for strangers.</li>
+      <li><strong>Angela approves every booking, personally.</strong> Sending a request is not a booking. Nothing is scheduled or confirmed until Angela reviews the request and confirms it herself.</li>
+      <li><strong>Scope of service.</strong> Angela provides regular and deep cleaning for homes on her route. She does not offer move-in or move-out cleaning herself — if you need that, she&rsquo;s happy to refer you to someone she trusts who does that work.</li>
+      <li><strong>Availability is Angela&rsquo;s call.</strong> She may pause new requests, keep a waitlist, or decline a request that isn&rsquo;t a fit, at any time.</li>
+      <li><strong>Clear identification.</strong> Every message clearly comes from Angela / Immaculate Home Solutions — from her own phone number and the email on her business card (immaculatehome@myyahoo.com) — never from an unfamiliar number or sender.</li>
+      <li><strong>Consent before messaging.</strong> Confirmations and reminders are only sent to people who have agreed to be contacted (for example, by giving Angela their number and asking for a clean, or agreeing to reminders as a client). Agreeing to messages is never a condition of getting your home cleaned — you can always reach Angela directly instead.</li>
+    </ul>
+  </section>
+
+  <!-- ================= PRIVACY (draft) ================= -->
+  <section data-view="privacy" class="view legal" hidden>
+    <p class="draft-flag">DRAFT — for Angela&rsquo;s review, not a live legal document.</p>
+    <h1>Privacy Policy</h1>
+    <h2>Your information stays yours</h2>
+    <ul>
+      <li><strong>What&rsquo;s collected:</strong> your name, phone number, and email if you give one; the name of the client who referred you; and the home details you share in a request (home size, pets, entry notes, and what you&rsquo;d like cleaned).</li>
+      <li><strong>What it&rsquo;s used for:</strong> only to review your request, schedule and carry out cleans, and send the confirmations and reminders you agreed to.</li>
+      <li><strong>Never sold.</strong> Your contact information is never sold, rented, or shared for anyone else&rsquo;s marketing. Ever.</li>
+      <li><strong>Referrals only with your say-so:</strong> if you ask about a move-in or move-out clean, Angela passes your contact details to the person she refers you to only if you tell her to.</li>
+      <li><strong>Your call on your info:</strong> ask Angela anytime what she has on file, or ask her to delete it, at <a href="mailto:immaculatehome@myyahoo.com">immaculatehome@myyahoo.com</a>.</li>
+    </ul>
+  </section>
+
+  <!-- ================= OPT-OUT ================= -->
+  <section data-view="optout" class="view legal" hidden>
+    <h1>Message preferences — opt out anytime, instantly</h1>
+    <p>You can stop messages from Immaculate Home Solutions at any time, for any reason, and it takes effect immediately — no questions, no waiting period, and it never affects your cleaning service.</p>
+    <ul>
+      <li><strong>Texts:</strong> reply STOP to any text (END, CANCEL, QUIT, or UNSUBSCRIBE work too). You&rsquo;ll get one short confirmation and no further texts.</li>
+      <li><strong>Email:</strong> use the opt-out / unsubscribe link or button at the bottom of any email — one click, honored immediately.</li>
+      <li><strong>Or just tell Angela</strong> — in person, by phone, or by email — and she&rsquo;ll take you off the list herself, right away.</li>
+    </ul>
+    <form id="optout-form" class="card">
+      <label>Your phone number or email<input name="contact" required autocomplete="email"></label>
+      <label>Channel
+        <select name="channel"><option value="text">Text messages</option><option value="email">Email messages</option></select>
+      </label>
+      <div class="row">
+        <button type="submit" name="action" value="out" class="btn">Opt out — stop these messages</button>
+        <button type="submit" name="action" value="in" class="btn">Opt back in</button>
+      </div>
+      <p id="optout-result" class="result" role="status"></p>
+    </form>
+  </section>
+
+  <!-- ================= LOGIN ================= -->
+  <section data-view="login" class="view" hidden>
+    <div class="card narrow">
+      <h1>Angela&rsquo;s book</h1>
+      <div id="login-supabase" hidden>
+        <p class="dim">This side is private — just for Angela. Enter your email and we&rsquo;ll send you a sign-in link. Tap it and your book opens.</p>
+        <form id="magic-form">
+          <label>Your email<input name="email" type="email" required autocomplete="email"></label>
+          <button class="btn primary" type="submit">Email me my sign-in link</button>
+          <p id="magic-result" class="result" role="status"></p>
+        </form>
+      </div>
+      <div id="login-local" hidden>
+        <p class="dim">Local test mode: this book lives only in this browser.</p>
+        <form id="local-code-form">
+          <label id="local-code-label">Passcode<input name="code" type="password" inputmode="numeric" autocomplete="current-password"></label>
+          <button class="btn primary" type="submit">Open my book</button>
+          <p id="local-code-result" class="result" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ANGELA'S BOOK ================= -->
+  <section data-view="book" class="view" hidden>
+    <div class="book-head">
+      <h1>My book</h1>
+      <span id="book-mode" class="mode-tag"></span>
+      <button id="lock-btn" class="btn small">Lock</button>
+    </div>
+    <nav class="tabs" id="book-tabs">
+      <button data-tab="home" class="active">Home</button>
+      <button data-tab="month">Month book</button>
+      <button data-tab="pad">Week pad</button>
+      <button data-tab="brief">Night-before brief</button>
+      <button data-tab="requests">Requests <span id="req-badge" class="badge" hidden></span></button>
+      <button data-tab="clients">Clients</button>
+      <button data-tab="drafts">Drafts</button>
+      <button data-tab="settings">Settings</button>
+    </nav>
+
+    <div data-panel="home" class="panel">
+      <div class="card">
+        <h2>Start here — it&rsquo;s all yours to edit</h2>
+        <ul class="checklist" id="home-checklist"></ul>
+      </div>
+      <div class="card">
+        <h2>Today</h2>
+        <div id="home-today"></div>
+      </div>
+    </div>
+
+    <div data-panel="month" class="panel" hidden>
+      <div class="month-nav">
+        <button class="btn" id="month-prev">&larr; Turn back</button>
+        <h2 id="month-title"></h2>
+        <button class="btn" id="month-next">Turn the page &rarr;</button>
+      </div>
+      <div class="spread" id="month-spread">
+        <div class="page page-left"><div class="day-names" id="names-left"></div><div id="cells-left"></div><p class="folio">Left page</p></div>
+        <div class="spine" aria-hidden="true"></div>
+        <div class="page page-right"><div class="day-names" id="names-right"></div><div id="cells-right"></div><p class="folio">Right page</p></div>
+      </div>
+      <div class="card" id="day-editor">
+        <h3 id="day-editor-title">Pick a day</h3>
+        <div id="day-jobs"></div>
+        <button class="btn" id="add-job-btn">+ Write in a job</button>
+        <form id="job-form" hidden>
+          <h4 id="job-form-title">Job</h4>
+          <label>Client name<input name="clientName" required></label>
+          <label>Client (from your book)<select name="clientId" id="job-client-select"><option value="">— just a name —</option></select></label>
+          <label>Date<input name="date" type="date" required></label>
+          <label>Start time<input name="startTime" type="time" value="09:00"></label>
+          <label>Minutes long<input name="durationMins" type="number" value="120" min="15" step="15"></label>
+          <label>Type<select name="cleanType"><option value="regular">Regular</option><option value="deep">Deep clean</option></select></label>
+          <label>Address<input name="address"></label>
+          <label>Tasks<textarea name="tasks" rows="2"></textarea></label>
+          <label>Pack / bring<input name="packList"></label>
+          <label>Repeats<select name="recurring"><option value="none">Does not repeat</option><option value="weekly">Weekly</option><option value="biweekly">Every other week</option><option value="monthly">Monthly</option></select></label>
+          <label>Status<select name="status"><option value="scheduled">Scheduled</option><option value="done">Done</option></select></label>
+          <label>Notes<textarea name="notes" rows="2"></textarea></label>
+          <div class="row">
+            <button class="btn primary" type="submit">Save it in the book</button>
+            <button class="btn" type="button" id="job-cancel">Close</button>
+            <button class="btn danger" type="button" id="job-delete" hidden>Erase this job</button>
+          </div>
+        </form>
+        <div class="pad-photos">
+          <h4>Pad page photos for this day</h4>
+          <div id="pad-photo-list"></div>
+          <label class="btn file-btn">Snap / attach a pad photo<input type="file" id="pad-photo-input" accept="image/*" hidden></label>
+        </div>
+      </div>
+    </div>
+
+    <div data-panel="pad" class="panel" hidden>
+      <div class="month-nav">
+        <button class="btn" id="pad-prev">&larr; Last week</button>
+        <h2 id="pad-title"></h2>
+        <button class="btn" id="pad-next">Next week &rarr;</button>
+      </div>
+      <div id="pad-days"></div>
+    </div>
+
+    <div data-panel="brief" class="panel" hidden>
+      <div class="card">
+        <h2 id="brief-title">Tomorrow</h2>
+        <div id="brief-jobs"></div>
+        <h3>Tomorrow&rsquo;s reminders</h3>
+        <div id="brief-drafts"></div>
+        <button class="btn primary" id="brief-approve-all">Approve all tomorrow&rsquo;s reminders</button>
+        <p class="dim small">Drafts are written by you, in your words. Nothing ever sends itself — you copy a draft and send it from your own phone when you&rsquo;re ready.</p>
+      </div>
+    </div>
+
+    <div data-panel="requests" class="panel" hidden>
+      <div class="card">
+        <h2>Requests waiting on you</h2>
+        <p class="dim">Nothing is ever booked automatically. Approve adds the person to your client book; you still pick the time together.</p>
+        <div id="request-list"></div>
+      </div>
+    </div>
+
+    <div data-panel="clients" class="panel" hidden>
+      <div class="card">
+        <h2>Client book</h2>
+        <div id="client-list"></div>
+        <button class="btn" id="add-client-btn">+ Add a client</button>
+        <form id="client-form" hidden>
+          <h4 id="client-form-title">Client</h4>
+          <label>Name<input name="name" required></label>
+          <label>Phone<input name="phone" type="tel"></label>
+          <label>Email<input name="email" type="email"></label>
+          <label>Address<input name="address"></label>
+          <label>Referred by<input name="referredBy"></label>
+          <label>Entry notes<input name="entryNotes"></label>
+          <label>Pets<input name="pets"></label>
+          <label>Preferences<input name="preferences"></label>
+          <label>Notes<textarea name="notes" rows="2"></textarea></label>
+          <div class="row">
+            <button class="btn primary" type="submit">Save client</button>
+            <button class="btn" type="button" id="client-cancel">Close</button>
+            <button class="btn danger" type="button" id="client-delete" hidden>Remove client</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div data-panel="drafts" class="panel" hidden>
+      <div class="card">
+        <h2>Your message drafts</h2>
+        <p class="dim">Written by you, in your words. Copy one and send it from your own phone — the site never sends anything.</p>
+        <div id="draft-list"></div>
+        <button class="btn" id="add-draft-btn">+ Write a draft</button>
+        <form id="draft-form" hidden>
+          <h4 id="draft-form-title">Draft</h4>
+          <label>For date<input name="forDate" type="date" required></label>
+          <label>Client name<input name="clientName"></label>
+          <label>Client phone<input name="clientPhone" type="tel"></label>
+          <label>Kind<select name="kind"><option value="reminder">Reminder</option><option value="confirmation">Confirmation</option><option value="note">Note</option></select></label>
+          <label>Words<textarea name="body" rows="4" required></textarea></label>
+          <div class="row">
+            <button class="btn primary" type="submit">Save draft</button>
+            <button class="btn" type="button" id="draft-cancel">Close</button>
+            <button class="btn danger" type="button" id="draft-delete" hidden>Delete draft</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div data-panel="settings" class="panel" hidden>
+      <div class="card">
+        <h2>My availability</h2>
+        <form id="availability-form">
+          <label class="radio"><input type="radio" name="availability" value="accepting"> Accepting new referrals</label>
+          <label class="radio"><input type="radio" name="availability" value="limited"> Limited spots</label>
+          <label class="radio"><input type="radio" name="availability" value="full"> Fully booked — waitlist only</label>
+          <button class="btn primary" type="submit">Save availability</button>
+          <p class="result" id="availability-result"></p>
+        </form>
+      </div>
+      <div class="card">
+        <h2>Edit my website</h2>
+        <form id="website-form">
+          <label>Front-page heading<input name="aboutHeading"></label>
+          <label>About wording<textarea name="aboutBody" rows="4"></textarea></label>
+          <label>Visitor note (shows at the top of the front page; leave blank for none)<textarea name="siteNote" rows="2"></textarea></label>
+          <button class="btn primary" type="submit">Save my website words</button>
+          <p class="result" id="website-result"></p>
+        </form>
+      </div>
+      <div class="card" id="local-code-card" hidden>
+        <h2>Lock this device with a passcode</h2>
+        <p class="dim">Local test mode only. In the live (Supabase) version, your email sign-in is the lock.</p>
+        <form id="set-code-form">
+          <label>New passcode<input name="code" type="password" inputmode="numeric"></label>
+          <button class="btn" type="submit">Set passcode</button>
+          <p class="result" id="set-code-result"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <svg class="diamond small" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 3 L44 17 L24 45 L4 17 Z" fill="none" stroke="#f2f2f2" stroke-width="2.4"/><path d="M4 17 H44 M24 3 L15 17 L24 45 M24 3 L33 17 L24 45" fill="none" stroke="#bdbdbd" stroke-width="1.4"/></svg>
+  <p>IMMACULATE HOME SOLUTIONS — Your Source for Personalized Home Care &middot; Residential cleaning, by referral &middot; Cheyenne, Wyoming area</p>
+  <p>ANGELA VILLALOBOS &middot; <a href="tel:+13072142440">307-214-2440</a> &middot; <a href="mailto:immaculatehome@myyahoo.com">IMMACULATEHOME@MYYAHOO.COM</a> — as printed on Angela&rsquo;s business card.</p>
+  <p><a href="#terms" data-nav="terms">Draft Terms of Service</a> &middot; <a href="#privacy" data-nav="privacy">Draft Privacy Policy</a> &middot; <a href="#optout" data-nav="optout">Message preferences &amp; opt-out</a></p>
+  <p id="mode-footer" class="dim small"></p>
+</footer>
+
+<script src="config.js"></script>
+<script src="seed-data.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
